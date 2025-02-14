@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta de San Valentín</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .heart {
+            font-size: 50px;
+            color: pink;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: pink;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff66b2;
+        }
+
+        .button-yes {
+            background-color: #ff4d94;
+        }
+
+        .button-no {
+            background-color: #ff9999;
+        }
+
+        .button-yes:hover {
+            background-color: #ff1a66;
+        }
+
+        .button-no:hover {
+            background-color: #ff6666;
+        }
+
+        .message {
+            font-size: 25px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .final-message {
+            font-size: 30px;
+            color: #ff3399;
+            font-weight: bold;
+            display: none;
+        }
+
+        .heart-animation {
+            display: inline-block;
+            animation: spin 3s infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Hola! ¿Estás bien con esta sorpresa de San Valentín? <span class="heart">&#10084;&#65039;</span></h1>
+    
+    <button id="yes" class="button-yes">¡Sí!</button>
+    <button id="no" class="button-no">No</button>
+
+    <p id="response" class="message">¡Gracias! ¡Feliz día de San Valentín!</p>
+
+    <p id="final-message" class="final-message">¡Feliz Día de San Valentín, [Nombre de tu amiga]! <span class="heart">&#10084;&#65039;</span></p>
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let responseMessage = document.getElementById("response");
+        let finalMessage = document.getElementById("final-message");
+
+        yesButton.onclick = function() {
+            responseMessage.style.display = "block";
+            finalMessage.style.display = "none";
+            yesButton.style.transform = "scale(1.2)";
+            setTimeout(function() {
+                yesButton.style.transform = "scale(1)";
+            }, 500);
+        };
+
+        noButton.onclick = function() {
+            noButton.style.transform = "scale(1.5)";
+            setTimeout(function() {
+                noButton.style.transform = "scale(1)";
+            }, 500);
+            yesButton.style.transform = "scale(1)";
+            setTimeout(function() {
+                yesButton.style.transform = "scale(1.2)";
+            }, 500);
+        };
+    </script>
+</body>
+</html>
